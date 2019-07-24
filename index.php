@@ -1,4 +1,7 @@
 <?php
 for ($i=0; $i<5;$i++){
-	echo 'hello world';
+	echo 'Hello World!';
 }
+echo 'some more stuff';
+
+echo 'this page is useless';
