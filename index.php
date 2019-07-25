@@ -1,7 +1,18 @@
 <?php
-include_once 'Dice.php';
+session_start();
 include_once 'Bucket.php';
 
-$bucket = new Bucket(5);
+if(isset($_SESSION['bucket'])){
+	$bucket = unserialize($_SESSION['bucket']);
+} else {
+	$bucket = new Bucket(5);
+}
+$bucket->displayDicesValues();
 
 $bucket->rollDices();
+
+echo '<br>';
+
+$bucket->displayDicesValues();
+
+$_SESSION['bucket']= serialize($bucket);

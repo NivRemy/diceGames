@@ -16,6 +16,11 @@ class Bucket {
 	public function rollDices(){
 		foreach($this->_diceList as $dice){
 			$dice->rollDice();
+		}
+	}
+
+	public function displayDicesValues(){
+		foreach($this->_diceList as $dice){
 			echo $dice->getCurrentValue() . '<br>';
 		}
 	}

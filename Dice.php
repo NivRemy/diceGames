@@ -17,8 +17,6 @@ class Dice {
 				$this->rollDice();
 				break;
     	}
-
-		
 	}
 
 	public function rollDice() {
