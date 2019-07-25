@@ -24,4 +24,8 @@ class Bucket {
 			echo $dice->getCurrentValue() . '<br>';
 		}
 	}
+
+	public function rerollDice($index){
+		$this->_diceList[($index-1)]->rollDice();
+	}
 }
