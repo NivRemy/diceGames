@@ -12,12 +12,23 @@ if(isset($_POST['index'])){
 	foreach ($_POST['index'] as $index) {
 		$bucket->rerollDice($index);
 	}
+	$bucket->incrementCount();
 }
+
 
 
 $bucket->displayDicesValues();
 
-$_SESSION['bucket']= serialize($bucket);
+echo '<br> Nombre de jets: ' . $bucket->getCount();
+
+$result = array_count_values($bucket->getDicesValues());
+if (max($result)>=4){
+	echo '<br>Vous avez gagné en ' . $bucket->getCount() . ' jets';
+	session_destroy();
+}else{
+	$_SESSION['bucket']= serialize($bucket);
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -40,5 +51,7 @@ $_SESSION['bucket']= serialize($bucket);
 		<input type="checkbox" name="index[]" value="5">
 		<button type="submit">Relancer</button>
 	</form>
+
+	<a href="reset.php">Nouvelle partie</a>
 </body>
 </html>
