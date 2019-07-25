@@ -1,7 +1,7 @@
 <?php
-for ($i=0; $i<5;$i++){
-	echo 'Hello World!';
-}
-echo 'some more stuff';
+include_once 'Dice.php';
+include_once 'Bucket.php';
 
-echo 'this page is useless';
+$bucket = new Bucket(5);
+
+$bucket->rollDices();
