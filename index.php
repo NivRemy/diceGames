@@ -25,7 +25,9 @@ $result = array_count_values($bucket->getDicesValues());
 if (max($result)>=4){
 	echo '<br>Vous avez gagné en ' . $bucket->getCount() . ' jets';
 	session_destroy();
-}else{
+}else if(max($result)>=4 && $bucket->getCount()<= 1){
+		echo '<br>Vous avez gagné en ' . $bucket->getCount() . ' jet';
+	}else{
 	$_SESSION['bucket']= serialize($bucket);
 }
 
